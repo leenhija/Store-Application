@@ -19,7 +19,7 @@ export default function Header() {
         <h1> OnlyFoods</h1>
       </div>
       <button className="text-button" onClick={handleOpenCart}>
-        Cart{CartCount > 0 ? ` (${CartCount})` : ""}
+        Cart{CartCount > 0 ? ` (${CartCount})` : "(0)"}
       </button>
       <Modal onOpen={openCart} onClose={handleCloseCart} />
     </header>
