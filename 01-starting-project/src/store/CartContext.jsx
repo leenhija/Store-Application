@@ -11,15 +11,18 @@ export default function CartContextProvider({ children }) {
   const [CartItems, setCartItems] = useState([]);
   const [TotalPrice, setTotalPrice] = useState(0);
   const addItem = (newItem) => {
-    const itemExist = CartItems.includes(newItem);
-    if (itemExist) {
-      return;
-    }
+    const exisedItem=CartItems.findIndex((item)=> item.id === newItem.id);
+    if (exisedItem!=-1 ) {
+      setCartItems((prev)=>{
+        prev[exisedItem].quantity+=1
+        return [...prev]
+      })
+    }else{
     newItem = { ...newItem, quantity: 1 };
     setCartItems((prevItems) => {
       return [...prevItems, newItem];
     });
-    calculateTotalPrice();
+    calculateTotalPrice();}
   };
   const removeItem = (itemToRemove) => {
     setCartItems((prevCartItems) =>
