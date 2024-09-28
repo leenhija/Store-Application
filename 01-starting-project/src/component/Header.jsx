@@ -16,7 +16,7 @@ export default function Header() {
     <header id="main-header">
       <div id="title">
         <img src={logo} />
-        <h1> FoodsHere</h1>
+        <h1> OnlyFoods</h1>
       </div>
       <button className="text-button" onClick={handleOpenCart}>
         Cart{CartCount > 0 ? ` (${CartCount})` : ""}

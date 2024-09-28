@@ -9,7 +9,7 @@ body {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(#29251c, #2c2306);
+  background: linear-gradient(#291c1c, #2c1c06);
   color: #d9e2f1;
   min-height: 100vh;
 }
@@ -62,7 +62,7 @@ h1 {
 }
 
 .meal-item {
-  background-color: #1d1a16;
+  background-color: #ae8b32;
   border-radius: 1rem;
   overflow: hidden;
   text-align: center;

@@ -5,6 +5,7 @@ export const CartContext = createContext({
   addItem: () => {},
   removeItem: () => {},
   calculateTotalPrice: () => {},
+  emptyTheCart:()=>{}
 });
 export default function CartContextProvider({ children }) {
   const [CartItems, setCartItems] = useState([]);
@@ -33,6 +34,9 @@ export default function CartContextProvider({ children }) {
     );
     setTotalPrice(total.toFixed(2));
   }
+  const emptyTheCart=()=>{
+    CartItems.splice(0,CartItems.length);
+  }
   return (
     <CartContext.Provider
       value={{
@@ -41,6 +45,7 @@ export default function CartContextProvider({ children }) {
         addItem,
         removeItem,
         calculateTotalPrice,
+        emptyTheCart
       }}
     >
       {children}

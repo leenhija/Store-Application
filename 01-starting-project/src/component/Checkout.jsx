@@ -4,7 +4,7 @@ import { CartContext } from "../store/CartContext";
 import { updateOrder } from "../http";
 import ErrorTag from "./ErrorTag";
 export default function Checkout({ onClose, isCheckOut }) {
-  const { TotalPrice, CartItems } = useContext(CartContext);
+  const { TotalPrice, CartItems , emptyTheCart } = useContext(CartContext);
   const [error, setError] = useState();
   const [isFetching, setIsFetching] = useState(false);
   const [fetchedData, setFetchedData] = useState(false);
@@ -19,6 +19,7 @@ export default function Checkout({ onClose, isCheckOut }) {
         const order = await updateOrder(userData, CartItems);
         console.log(order);
         setFetchedData(true);
+        emptyTheCart();
       } catch (error) {
         setError({ message: error.message || "Error Fetching Data" });
       }
